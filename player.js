@@ -10,15 +10,17 @@ class Player {
 
   move() {
     if (this.direction === "down") {
+      this.y += this.velocity
       if (
-        this.y <
+        this.y >=
         this.gameAreaHeight - this.element.getBoundingClientRect().height
       ) {
-        this.y += this.velocity;
+        this.y = this.gameAreaHeight - this.element.getBoundingClientRect().height;
       }
     } else if (this.direction === "up") {
-      if (this.y > 0) {
-        this.y -= this.velocity;
+      this.y -= this.velocity;
+      if (this.y <= 0) {
+        this.y = 0
       }
     }
     this.element.style.top = `${this.y}px`;

@@ -33,11 +33,21 @@ let frameCounter = 0;
 }
 
 window.requestAnimationFrame(moveRight); */
+const enemies = [];
+
+setInterval(() => {
+  const enemy = new Enemy();
+  enemies.push(enemy);
+}, 1000);
+
 
 function gameLoop() {
   // Add here all the movement that is going to be trigered on each frame
   frameCounter++;
   window.requestAnimationFrame(gameLoop);
+  enemies.forEach((enemy) => {
+    enemy.move();
+  });
   player.move();
 }
 window.requestAnimationFrame(gameLoop);

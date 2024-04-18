@@ -11,6 +11,15 @@
   position: relative;
 }
 
+.enemy {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(232, 37, 37);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 body {
   display: flex;
   justify-content: center;

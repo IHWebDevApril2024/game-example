@@ -9,6 +9,7 @@
   width: 80vw;
   background-color: rgb(71, 71, 71);
   position: relative;
+  overflow: hidden;
 }
 
 body {
@@ -26,4 +27,11 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.enemy {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(232, 37, 82);
+  position: absolute;
 }

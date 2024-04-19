@@ -3,24 +3,30 @@ class Player {
     this.element = document.querySelector("#player");
     this.x = 0;
     this.y = 0;
+    this.height = this.element.getBoundingClientRect().height;
+    this.width = this.element.getBoundingClientRect().width;
     this.direction = null;
-    this.velocity = 10;
+    this.velocity = 12;
     this.gameAreaHeight = gameAreaElement.getBoundingClientRect().height;
   }
 
   move() {
     if (this.direction === "down") {
+      this.y += this.velocity;
       if (
-        this.y <
+        this.y >=
         this.gameAreaHeight - this.element.getBoundingClientRect().height
       ) {
-        this.y += this.velocity;
+        this.y =
+          this.gameAreaHeight - this.element.getBoundingClientRect().height;
       }
     } else if (this.direction === "up") {
-      if (this.y > 0) {
-        this.y -= this.velocity;
+      this.y -= this.velocity;
+      if (this.y <= 0) {
+        this.y = 0;
       }
     }
     this.element.style.top = `${this.y}px`;
   }
+  
 }
